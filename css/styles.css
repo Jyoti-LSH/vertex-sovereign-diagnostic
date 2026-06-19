@@ -283,3 +283,50 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted-2);font
 .disclaimer{margin-top:30px;padding:18px 20px;background:#0C1018;border:1px solid var(--line);
   border-radius:6px;color:var(--muted-2);font-size:.76rem;line-height:1.55;}
 .disclaimer b{color:var(--muted);}
+
+/* ---- Responsive / mobile ---------------------------------------- */
+.radar-wrap svg{max-width:100%;height:auto;}
+img,svg{max-width:100%;}
+
+@media (max-width:640px){
+  .wrap{padding:0 18px;}
+  .section{padding:38px 0;}
+  .hero{padding:54px 0 38px;}
+  h1{font-size:2rem;}
+  .hero h1{font-size:2rem;line-height:1.18;}
+  .cover h1{font-size:1.7rem;}
+  h2{font-size:1.4rem;}
+  .hero .sub{font-size:1.04rem;}
+  .lead{font-size:1rem;}
+  .eyebrow{font-size:.66rem;letter-spacing:.26em;}
+  .score-hero{gap:18px;padding:18px 0 6px;}
+  .score-badge{width:150px;height:150px;}
+  .score-badge b{font-size:3rem;}
+  .band-pill{font-size:.72rem;}
+  .topbar .wrap{height:56px;}
+  .brand{font-size:1.05rem;}
+  .navlinks a{margin-left:14px;font-size:.76rem;}
+  .price-tag{font-size:.94rem;}
+  .panel{padding:22px 18px;}
+  .cta-card{padding:24px 18px;}
+  .flagblock{padding:20px 18px;}
+  .trust{gap:14px;justify-content:flex-start;}
+
+  /* Report heat map — keep readable, let the score bar shrink */
+  .heat-table{font-size:.86rem;}
+  .heat-table th{font-size:.62rem;letter-spacing:.08em;}
+  .heat-table .bar{min-width:60px;}
+
+  /* Sessions table — drop the noisy columns so it fits a phone */
+  .sess-table th:nth-child(2), .sess-table td:nth-child(2),   /* date & time */
+  .sess-table th:nth-child(5), .sess-table td:nth-child(5){   /* email */
+    display:none;}
+  .sess-table th, .sess-table td{padding:11px 8px;}
+
+  /* Engagement bridge — stack label over value */
+  .eng-row{flex-direction:column;gap:2px;}
+  .eng-k{flex:none;}
+
+  /* Checkout — expiry / CVC stack on very small screens */
+  .row{flex-direction:column;gap:0;}
+}
