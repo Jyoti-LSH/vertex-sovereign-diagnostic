@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saved Sessions — Vertex Sovereign Diagnostic™</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"><a href="index.html" style="color:inherit;">VERTEX<span class="dot">.</span></a><small>Sovereign Diagnostic</small></div>
+    <div class="navlinks"><a href="checkout.html">+ New diagnostic</a></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Saved on this device</div>
+    <h1 style="font-size:2rem;">Saved sessions</h1>
+    <p class="muted" style="margin-top:-6px;">Each diagnostic is stored in this browser. Click a name to rename it; changes save automatically.</p>
+
+    <div class="panel" style="margin-top:22px;">
+      <table class="sess-table">
+        <thead><tr><th style="width:34%;">Name</th><th>Date &amp; time</th><th>Score</th><th>Band</th><th>Email</th><th></th></tr></thead>
+        <tbody id="rows"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody>
+      </table>
+      <div id="empty" class="empty" style="display:none;">No sessions yet. <a href="checkout.html">Run the diagnostic →</a></div>
+    </div>
+  </div>
+</section>
+
+<script src="js/store.js"></script>
+<script src="js/sessions.js"></script>
+</body>
+</html>

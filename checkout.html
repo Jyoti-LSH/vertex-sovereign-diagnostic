@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout — Vertex Sovereign Diagnostic™</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"><a href="index.html" style="color:inherit;">VERTEX<span class="dot">.</span></a><small>Global Access</small></div>
+    <div class="navlinks"><a href="index.html">← Back</a></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <span class="demo-badge">Demo — no real payment is taken</span>
+    <div class="checkout-grid">
+
+      <div class="panel">
+        <h2 style="font-size:1.4rem;">Payment details</h2>
+        <p class="muted small" style="margin-top:-4px;">Enter any numbers — this is a simulated checkout.
+          Card details are not sent anywhere or stored.</p>
+
+        <form id="pay-form" style="margin-top:18px;">
+          <div class="field">
+            <label>Email (for your receipt and a copy of your report)</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <label>Card number</label>
+            <input id="card" inputmode="numeric" placeholder="4242 4242 4242 4242" required>
+          </div>
+          <div class="row">
+            <div class="field"><label>Expiry</label><input id="exp" placeholder="MM / YY" required></div>
+            <div class="field"><label>CVC</label><input id="cvc" inputmode="numeric" placeholder="123" required></div>
+          </div>
+          <div class="field"><label>Name on card</label><input id="name" placeholder="Full name" required></div>
+          <button type="submit" class="btn btn-gold btn-block" id="pay-btn">Pay £997 →</button>
+          <p class="footnote" style="margin-top:14px;">Simulated secure checkout · Powered by “Stripe” (demo)</p>
+        </form>
+      </div>
+
+      <div>
+        <div class="panel">
+          <div class="eyebrow">Order summary</div>
+          <div class="summary-line"><span>Vertex Sovereign Diagnostic™</span><span>£997</span></div>
+          <div class="summary-line"><span>Sovereign Score™ and written report</span><span>Included</span></div>
+          <div class="summary-line"><span>Delivery</span><span>On screen, right after your questionnaire</span></div>
+          <div class="summary-line total"><span>Total</span><b>£997</b></div>
+        </div>
+        <p class="footnote" style="margin-top:18px;">
+          After payment you'll answer 25 confidential questions (about 15 minutes), then your
+          Sovereign Score™ and full diagnostic report appear on screen straight away.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="js/store.js"></script>
+<script>
+const form = document.getElementById('pay-form');
+const btn = document.getElementById('pay-btn');
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  btn.disabled = true; btn.textContent = 'Processing…';
+  const email = document.getElementById('email').value.trim();
+  // Card fields are intentionally ignored and never stored.
+  try {
+    const id = window.VertexStore.createSession(email);
+    window.location.href = 'diagnostic.html?id=' + encodeURIComponent(id);
+  } catch (err) {
+    btn.disabled = false; btn.textContent = 'Pay £997 →';
+    alert('Something went wrong starting the demo.');
+  }
+});
+</script>
+
+</body>
+</html>
